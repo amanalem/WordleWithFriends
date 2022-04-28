@@ -24,6 +24,7 @@
     margin: auto;
     text-align: center;
     border: 1px solid red;
+    display: none;
 }
 
 .letterBox1 {
@@ -67,3 +68,22 @@
     width: 20%;
 }
 
+.flexGridRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+}
+.gameGrid {
+    border: 2px solid pink;
+    margin: 5vh 35vw 0 35vw;
+}
+
+.flexGridRow .column {
+    width: 18%;
+    height: 8vh;
+    border: 1px solid black;
+}
+
+#letter1, #letter2, #letter3, #letter4, #letter5, #letter6 {
+
+}

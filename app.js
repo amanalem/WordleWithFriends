@@ -1,6 +1,7 @@
-let submit = document.querySelector('#submitButton');
+let submitWord = document.querySelector('#submitWord');
+let submitGuess = document.querySelector('#submitGuess');
 
-submit.addEventListener('click', (e)=> {
+submitWord.addEventListener('click', (e)=> {
     e.preventDefault();
     let textInput = document.querySelector('#wordBox').value;
     // console.log(textInput);
@@ -19,8 +20,9 @@ submit.addEventListener('click', (e)=> {
                 alert(`Got it! Time to put your friend's skills to the test...`);
                 const word = new Word(textInput);
                 word.letters = textInput.split('');
-                textInput = undefined;
                 console.log(word.letters);
+                document.querySelector('#playerOne').style.display = "none";
+                document.querySelector('#playerTwo').style.display = "block";
             }
         })
         .catch(err => console.log(`This is an error!`, err))
