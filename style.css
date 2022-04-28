@@ -1,3 +1,9 @@
+#header {
+    border: 1px solid gold;
+    text-align: center;
+}
+
+
 #gridRow1, #gridRow2, #gridRow3, #gridRow4, #gridRow5, #gridRow6 {
     display: flex;
     border: 2px solid yellow;
@@ -6,7 +12,17 @@
     justify-content: center;
 }
 
+#playerOne {
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    border: 1px solid black;
+}
+
 #playerTwo {
+    justify-content: center;
+    margin: auto;
+    text-align: center;
     border: 1px solid red;
 }
 
@@ -50,3 +66,4 @@
     height: 100%;
     width: 20%;
 }
+

@@ -19,6 +19,7 @@ submit.addEventListener('click', (e)=> {
                 alert(`Got it! Time to put your friend's skills to the test...`);
                 const word = new Word(textInput);
                 word.letters = textInput.split('');
+                textInput = undefined;
                 console.log(word.letters);
             }
         })

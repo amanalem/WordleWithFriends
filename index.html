@@ -10,14 +10,78 @@
     <title>Wordle_With_Friends</title>
 </head>
 <body>
+    <header>
+        <div id="header">
+            <h1>Wordle With Friends</h1>
+        </div>
+    </header>
     <main>
         <div id="playerOne">
-            <form id="wordChooser">
-                <input type="text" name="wordBox" value="" id="wordBox" placeholder="5 letter word">
-                <input type="submit" name="submitButton" value="submit" id="submitButton">
-            </form>
+            <!-- This is where the player 1 screen is -->
+            <div id="p1WordChooser">
+                <!-- player one word chooser -->
+                <form>
+                    <input type="text" name="wordBox" value="" id="wordBox" placeholder="5 letter word">
+                    <input type="submit" name="submitButton" value="submit" id="submitButton">
+                </form>
+            </div>
         </div>
         <div id="playerTwo">
+            <!-- This is where the player 2 screen is -->
+            <div id="p2WordChooser">
+                <!-- player two word chooser -->
+                <form>
+                    <input type="text" name="wordBox" value="" id="wordBox" placeholder="5 letter word">
+                    <input type="submit" name="submitButton" value="submit" id="submitButton">
+                </form>
+            </div>
+            <div class="gameGrid">
+                <!-- wordle grid -->
+                <div id="row1" class="flex-grid">
+                    <div class="column" id="letter1"></div>
+                    <div class="column" id="letter2"></div>
+                    <div class="column" id="letter3"></div>
+                    <div class="column" id="letter4"></div>
+                    <div class="column" id="letter5"></div>
+                </div>
+                <div id="row2" class="flex-grid">
+                    <div class="column" id="letter1"></div>
+                    <div class="column" id="letter2"></div>
+                    <div class="column" id="letter3"></div>
+                    <div class="column" id="letter4"></div>
+                    <div class="column" id="letter5"></div>
+                </div>
+                <div id="row3" class="flex-grid">
+                    <div class="column" id="letter1"></div>
+                    <div class="column" id="letter2"></div>
+                    <div class="column" id="letter3"></div>
+                    <div class="column" id="letter4"></div>
+                    <div class="column" id="letter5"></div>
+                </div>
+                <div id="row4" class="flex-grid">
+                    <div class="column" id="letter1"></div>
+                    <div class="column" id="letter2"></div>
+                    <div class="column" id="letter3"></div>
+                    <div class="column" id="letter4"></div>
+                    <div class="column" id="letter5"></div>
+                </div>
+                <div id="row5" class="flex-grid">
+                    <div class="column" id="letter1"></div>
+                    <div class="column" id="letter2"></div>
+                    <div class="column" id="letter3"></div>
+                    <div class="column" id="letter4"></div>
+                    <div class="column" id="letter5"></div>
+                </div>
+                <div id="row6" class="flex-grid">
+                    <div class="column" id="letter1"></div>
+                    <div class="column" id="letter2"></div>
+                    <div class="column" id="letter3"></div>
+                    <div class="column" id="letter4"></div>
+                    <div class="column" id="letter5"></div>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="playerTwo">
             <div id="gridRow1">
                 <div class="letterBox1">1.1</div>
                 <div class="letterBox2">1.2</div>
@@ -60,7 +124,7 @@
                 <div class="letterBox4">6.4</div>
                 <div class="letterBox5">6.5</div>
             </div>
-       </div>
+       </div> -->
     </main>
     
 </body>
