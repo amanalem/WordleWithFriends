@@ -75,7 +75,7 @@
 }
 .gameGrid {
     border: 2px solid pink;
-    margin: 5vh 35vw 0 35vw;
+    margin: 1vh 35vw 0 35vw;
 }
 
 .flexGridRow .column {
@@ -86,6 +86,16 @@
     line-height: 8vh;
 }
 
-#letter1, #letter2, #letter3, #letter4, #letter5, #letter6 {
-
+#errorHolder {
+    color: transparent;
+    margin: 2% 0 0 0;
+    display: block;
 }
+
+#errorLength, #errorNotWord {
+    color: red;
+    margin: 2% 0 0 0;
+    display: none;
+}
+
+
