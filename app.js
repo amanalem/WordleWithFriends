@@ -1,6 +1,8 @@
 let submitWord = document.querySelector('#submitWord');
 let submitGuess = document.querySelector('#submitGuess');
 
+let errors = document.querySelectorAll('#p2WordChooser h4')
+
 let row1 = document.querySelectorAll('#row1 .column');
 let row2 = document.querySelectorAll('#row2 .column');
 let row3 = document.querySelectorAll('#row3 .column');
@@ -51,186 +53,187 @@ submitGuess.addEventListener('click', (e)=> {
     e.preventDefault();
     let textInput = document.querySelector('#guessBox').value;
     // console.log(textInput);
-    while (textInput.length !== 5){
+    if (textInput.length !== 5){
         // alert(`Your word must be exactly 5 letters long. Please try again.`);
-        submitGuess.addEventListener('click', (e)=> {
-            e.preventDefault();
-            textInput = document.querySelector('#guessBox').value;
-        }, {once : true})
+        errors[0].style.display = "none";
+        errors[1].style.display = "block";  
     };
-    // Dictionary api url setup
-    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
-    fetch(url)
-    .then(res => res.json())
-    .then(res => {
-        // console.log(res)
-        if (res.title){
-            alert(`This is not an English word. Please try again`)
-        } else {
-            const guess1 = new Word(textInput);
-            guess1.letters = textInput.split('');
-            console.log(guess1.letters);
-            guessBox.value = "";
-            for (i = 0; i < 5; i++){
-                row1[i].innerText = guess1.letters[i];
-            };
-            guessBox.placeholder = "Guess 2";
+    if (textInput.length === 5){
+        // Dictionary api url setup
+        let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(res => {
+            // console.log(res)
+            if (res.title){
+                alert(`This is not an English word. Please try again`)
+            } else {
+                const guess1 = new Word(textInput);
+                guess1.letters = textInput.split('');
+                console.log(guess1.letters);
+                guessBox.value = "";
+                for (i = 0; i < 5; i++){
+                    row1[i].innerText = guess1.letters[i];
+                };
+                guessBox.placeholder = "Guess 2";
 
-            // Guess 2 Submit -------------------------------------->>
-            submitGuess.addEventListener('click', (e)=> {
-                e.preventDefault();
-                textInput = document.querySelector('#guessBox').value;
-                // console.log(textInput);
-                if (textInput.length !== 5){
-                    alert(`Your word must be exactly 5 letters long. Please try again.`)
-                } else {
-                    // Dictionary api url setup
-                    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
-                    fetch(url)
-                    .then(res => res.json())
-                    .then(res => {
-                        // console.log(res)
-                        if (res.title){
-                            alert(`This is not an English word. Please try again`)
-                        } else {
-                            const guess2 = new Word(textInput);
-                            guess2.letters = textInput.split('');
-                            console.log(guess2.letters);
-                            guessBox.value = "";
-                            for (i = 0; i < 5; i++){
-                                row2[i].innerText = guess2.letters[i];
-                            };
-                            guessBox.placeholder = "Guess 3";
+                // Guess 2 Submit -------------------------------------->>
+                submitGuess.addEventListener('click', (e)=> {
+                    e.preventDefault();
+                    textInput = document.querySelector('#guessBox').value;
+                    // console.log(textInput);
+                    if (textInput.length !== 5){
+                        alert(`Your word must be exactly 5 letters long. Please try again.`)
+                    } else {
+                        // Dictionary api url setup
+                        let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
+                        fetch(url)
+                        .then(res => res.json())
+                        .then(res => {
+                            // console.log(res)
+                            if (res.title){
+                                alert(`This is not an English word. Please try again`)
+                            } else {
+                                const guess2 = new Word(textInput);
+                                guess2.letters = textInput.split('');
+                                console.log(guess2.letters);
+                                guessBox.value = "";
+                                for (i = 0; i < 5; i++){
+                                    row2[i].innerText = guess2.letters[i];
+                                };
+                                guessBox.placeholder = "Guess 3";
 
-                            // Guess 3 Submit--------------------->>
-                            submitGuess.addEventListener('click', (e)=> {
-                                e.preventDefault();
-                                textInput = document.querySelector('#guessBox').value;
-                                // console.log(textInput);
-                                if (textInput.length !== 5){
-                                    alert(`Your word must be exactly 5 letters long. Please try again.`)
-                                } else {
-                                    // Dictionary api url setup
-                                    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
-                                    fetch(url)
-                                    .then(res => res.json())
-                                    .then(res => {
-                                        // console.log(res)
-                                        if (res.title){
-                                            alert(`This is not an English word. Please try again`)
-                                        } else {
-                                            const guess3 = new Word(textInput);
-                                            guess3.letters = textInput.split('');
-                                            console.log(guess3.letters);
-                                            guessBox.value = "";
-                                            for (i = 0; i < 5; i++){
-                                                row3[i].innerText = guess3.letters[i];
-                                            };
-                                            guessBox.placeholder = "Guess 4";
+                                // Guess 3 Submit--------------------->>
+                                submitGuess.addEventListener('click', (e)=> {
+                                    e.preventDefault();
+                                    textInput = document.querySelector('#guessBox').value;
+                                    // console.log(textInput);
+                                    if (textInput.length !== 5){
+                                        alert(`Your word must be exactly 5 letters long. Please try again.`)
+                                    } else {
+                                        // Dictionary api url setup
+                                        let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
+                                        fetch(url)
+                                        .then(res => res.json())
+                                        .then(res => {
+                                            // console.log(res)
+                                            if (res.title){
+                                                alert(`This is not an English word. Please try again`)
+                                            } else {
+                                                const guess3 = new Word(textInput);
+                                                guess3.letters = textInput.split('');
+                                                console.log(guess3.letters);
+                                                guessBox.value = "";
+                                                for (i = 0; i < 5; i++){
+                                                    row3[i].innerText = guess3.letters[i];
+                                                };
+                                                guessBox.placeholder = "Guess 4";
 
-                                            // Guess 4 Submit--------------------->>
-                                            submitGuess.addEventListener('click', (e)=> {
-                                                e.preventDefault();
-                                                textInput = document.querySelector('#guessBox').value;
-                                                // console.log(textInput);
-                                                if (textInput.length !== 5){
-                                                    alert(`Your word must be exactly 5 letters long. Please try again.`)
-                                                } else {
-                                                    // Dictionary api url setup
-                                                    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
-                                                    fetch(url)
-                                                    .then(res => res.json())
-                                                    .then(res => {
-                                                        // console.log(res)
-                                                        if (res.title){
-                                                            alert(`This is not an English word. Please try again`)
-                                                        } else {
-                                                            const guess4 = new Word(textInput);
-                                                            guess4.letters = textInput.split('');
-                                                            console.log(guess4.letters);
-                                                            guessBox.value = "";
-                                                            for (i = 0; i < 5; i++){
-                                                                row4[i].innerText = guess4.letters[i];
-                                                            };           
-                                                            guessBox.placeholder = "Guess 5";
-                                                            
-                                                            // Guess 5 Submit--------------------->>
-                                                            submitGuess.addEventListener('click', (e)=> {
-                                                                e.preventDefault();
-                                                                textInput = document.querySelector('#guessBox').value;
-                                                                // console.log(textInput);
-                                                                if (textInput.length !== 5){
-                                                                    alert(`Your word must be exactly 5 letters long. Please try again.`)
-                                                                } else {
-                                                                    // Dictionary api url setup
-                                                                    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
-                                                                    fetch(url)
-                                                                    .then(res => res.json())
-                                                                    .then(res => {
-                                                                        // console.log(res)
-                                                                        if (res.title){
-                                                                            alert(`This is not an English word. Please try again`)
-                                                                        } else {
-                                                                            const guess5 = new Word(textInput);
-                                                                            guess5.letters = textInput.split('');
-                                                                            console.log(guess5.letters);
-                                                                            guessBox.value = "";
-                                                                            for (i = 0; i < 5; i++){
-                                                                                row5[i].innerText = guess5.letters[i];
-                                                                            };           
-                                                                            guessBox.placeholder = "Guess 6";
-                                                                            
-                                                                            // Guess 6 Submit--------------------->>
-                                                                            submitGuess.addEventListener('click', (e)=> {
-                                                                                e.preventDefault();
-                                                                                textInput = document.querySelector('#guessBox').value;
-                                                                                // console.log(textInput);
-                                                                                if (textInput.length !== 5){
-                                                                                    alert(`Your word must be exactly 5 letters long. Please try again.`)
-                                                                                } else {
-                                                                                    // Dictionary api url setup
-                                                                                    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
-                                                                                    fetch(url)
-                                                                                    .then(res => res.json())
-                                                                                    .then(res => {
-                                                                                        // console.log(res)
-                                                                                        if (res.title){
-                                                                                            alert(`This is not an English word. Please try again`)
-                                                                                        } else {
-                                                                                            const guess6 = new Word(textInput);
-                                                                                            guess6.letters = textInput.split('');
-                                                                                            console.log(guess6.letters);
-                                                                                            guessBox.value = "";
-                                                                                            for (i = 0; i < 5; i++){
-                                                                                                row6[i].innerText = guess6.letters[i];
-                                                                                            };           
-                                                                                            guessBox.placeholder = "No more guesses!";
-                                                                                        }
-                                                                                    })
-                                                                                    .catch(err => console.log(`This is an error!`, err))
-                                                                                }     
-                                                                            }, {once : true});
-                                                                        }
-                                                                    })
-                                                                    .catch(err => console.log(`This is an error!`, err))
-                                                                }     
-                                                            }, {once : true});
-                                                        }
-                                                    })
-                                                    .catch(err => console.log(`This is an error!`, err))
-                                                }     
-                                            }, {once : true});                            
-                                        }
-                                    })
-                                    .catch(err => console.log(`This is an error!`, err))
-                                }     
-                            }, {once : true});
-                        }
-                    })
-                    .catch(err => console.log(`This is an error!`, err))
-                }   
-            }, {once : true});
-        }
-    })
-    .catch(err => console.log(`This is an error!`, err))
-}, {once : true});
+                                                // Guess 4 Submit--------------------->>
+                                                submitGuess.addEventListener('click', (e)=> {
+                                                    e.preventDefault();
+                                                    textInput = document.querySelector('#guessBox').value;
+                                                    // console.log(textInput);
+                                                    if (textInput.length !== 5){
+                                                        alert(`Your word must be exactly 5 letters long. Please try again.`)
+                                                    } else {
+                                                        // Dictionary api url setup
+                                                        let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
+                                                        fetch(url)
+                                                        .then(res => res.json())
+                                                        .then(res => {
+                                                            // console.log(res)
+                                                            if (res.title){
+                                                                alert(`This is not an English word. Please try again`)
+                                                            } else {
+                                                                const guess4 = new Word(textInput);
+                                                                guess4.letters = textInput.split('');
+                                                                console.log(guess4.letters);
+                                                                guessBox.value = "";
+                                                                for (i = 0; i < 5; i++){
+                                                                    row4[i].innerText = guess4.letters[i];
+                                                                };           
+                                                                guessBox.placeholder = "Guess 5";
+                                                                
+                                                                // Guess 5 Submit--------------------->>
+                                                                submitGuess.addEventListener('click', (e)=> {
+                                                                    e.preventDefault();
+                                                                    textInput = document.querySelector('#guessBox').value;
+                                                                    // console.log(textInput);
+                                                                    if (textInput.length !== 5){
+                                                                        alert(`Your word must be exactly 5 letters long. Please try again.`)
+                                                                    } else {
+                                                                        // Dictionary api url setup
+                                                                        let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
+                                                                        fetch(url)
+                                                                        .then(res => res.json())
+                                                                        .then(res => {
+                                                                            // console.log(res)
+                                                                            if (res.title){
+                                                                                alert(`This is not an English word. Please try again`)
+                                                                            } else {
+                                                                                const guess5 = new Word(textInput);
+                                                                                guess5.letters = textInput.split('');
+                                                                                console.log(guess5.letters);
+                                                                                guessBox.value = "";
+                                                                                for (i = 0; i < 5; i++){
+                                                                                    row5[i].innerText = guess5.letters[i];
+                                                                                };           
+                                                                                guessBox.placeholder = "Guess 6";
+                                                                                
+                                                                                // Guess 6 Submit--------------------->>
+                                                                                submitGuess.addEventListener('click', (e)=> {
+                                                                                    e.preventDefault();
+                                                                                    textInput = document.querySelector('#guessBox').value;
+                                                                                    // console.log(textInput);
+                                                                                    if (textInput.length !== 5){
+                                                                                        alert(`Your word must be exactly 5 letters long. Please try again.`)
+                                                                                    } else {
+                                                                                        // Dictionary api url setup
+                                                                                        let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
+                                                                                        fetch(url)
+                                                                                        .then(res => res.json())
+                                                                                        .then(res => {
+                                                                                            // console.log(res)
+                                                                                            if (res.title){
+                                                                                                alert(`This is not an English word. Please try again`)
+                                                                                            } else {
+                                                                                                const guess6 = new Word(textInput);
+                                                                                                guess6.letters = textInput.split('');
+                                                                                                console.log(guess6.letters);
+                                                                                                guessBox.value = "";
+                                                                                                for (i = 0; i < 5; i++){
+                                                                                                    row6[i].innerText = guess6.letters[i];
+                                                                                                };           
+                                                                                                guessBox.placeholder = "No more guesses!";
+                                                                                            }
+                                                                                        })
+                                                                                        .catch(err => console.log(`This is an error!`, err))
+                                                                                    }     
+                                                                                }, {once : true});
+                                                                            }
+                                                                        })
+                                                                        .catch(err => console.log(`This is an error!`, err))
+                                                                    }     
+                                                                }, {once : true});
+                                                            }
+                                                        })
+                                                        .catch(err => console.log(`This is an error!`, err))
+                                                    }     
+                                                }, {once : true});                            
+                                            }
+                                        })
+                                        .catch(err => console.log(`This is an error!`, err))
+                                    }     
+                                }, {once : true});
+                            }
+                        })
+                        .catch(err => console.log(`This is an error!`, err))
+                    }   
+                }, {once : true});
+            }
+        })
+        .catch(err => console.log(`This is an error!`, err))
+    }
+// }, {once : true});
+});
