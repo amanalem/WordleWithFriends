@@ -19,7 +19,22 @@ let row6 = document.querySelectorAll('#row6 .column');
 class Word {
     constructor(word){
         this.word = word;
-        this.letters = [];
+        this.letters = this.word.split('');
+    }
+}
+
+class Guess {
+    constructor(word){
+        this.word = word;
+        this.letters = this.word.split('');
+    }
+    gridPush1(){
+        for (i = 0; i < 5; i++){
+            row1[i].innerText = this.letters[i];
+        };
+        guessBox.placeholder = "Guess 2";
+        submitGuess[0].style.display = "none";
+        submitGuess[1].style.display = "inline";
     }
 }
 
@@ -41,9 +56,8 @@ submitWord.addEventListener('click', (e)=> {
                 alert(`This is not an English word. Please try again`)
             } else {
                 alert(`Got it! Time to put your friend's skills to the test...`);
-                const word = new Word(textInput);
-                word.letters = textInput.split('');
-                console.log(word.letters);
+                const choice = new Word(textInput);
+                console.log(choice.letters);
                 document.querySelector('#playerOne').style.display = "none";
                 document.querySelector('#playerTwo').style.display = "block";
             }
@@ -70,15 +84,21 @@ submitGuess1.addEventListener('click', (e)=> {
         } else {
             errors[0].style.display = "block";
             errors[1].style.display = "none";
-            const guess1 = new Word(guess1Input);
-            guess1.letters = guess1Input.split('');
+            const guess1 = new Guess(guess1Input);
+            guess1.gridPush1();
             guessBox.value = "";
-            for (i = 0; i < 5; i++){
-                row1[i].innerText = guess1.letters[i];
-            };
-            guessBox.placeholder = "Guess 2";
-            submitGuess[0].style.display = "none";
-            submitGuess[1].style.display = "inline";
+            // for (i = 0; i < 5; i++){
+            //     row1[i].innerText = guess1.letters[i];
+            // };
+            // for (i = 0; i < 5; i++){
+            //     if (guess1.letters[i] == word.letters[i]){
+            //         row1[i].style.backgroundColor = 'green';
+            //     } else if (word.letters.find(el => el == guess1.letters[i])){
+            //         row1[i].style.backgroundColor = 'orange';   
+            //     } else if (word.letters.find(el => el == guess1.letters[i]) == undefined){
+            //         row1[i].style.backgroundColor = 'grey';
+            //     }    
+            // };
         }
     })
     .catch(err => console.log(`This is an error!`, err))        
