@@ -1,5 +1,11 @@
+// player 1
 let submitWord = document.querySelector('#submitWord');
-let submitGuess = document.querySelector('#submitGuess');
+
+// player 2
+let submitGuess = document.querySelectorAll('.submitGuess');
+for (i = 1; i < submitGuess.length; i++){
+    submitGuess[i].style.display = 'none';
+}
 
 let errors = document.querySelectorAll('#p2WordChooser h4')
 
@@ -49,36 +55,32 @@ submitWord.addEventListener('click', (e)=> {
 // screen changes to player 2 view...
 
 // Guess 1 Submit ----------------------------->>
-submitGuess.addEventListener('click', (e)=> {
+submitGuess1.addEventListener('click', (e)=> {
     e.preventDefault();
-    let textInput = document.querySelector('#guessBox').value;
-    // console.log(textInput);
-    if (textInput.length !== 5){
-        // alert(`Your word must be exactly 5 letters long. Please try again.`);
-        errors[0].style.display = "none";
-        errors[1].style.display = "block";  
-    };
-    if (textInput.length === 5){
-        // Dictionary api url setup
-        let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${textInput}`;
-        fetch(url)
-        .then(res => res.json())
-        .then(res => {
+    let guess1Input = document.querySelector('#guessBox').value;
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess1Input}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(res => {
             // console.log(res)
-            if (res.title){
-                alert(`This is not an English word. Please try again`)
-            } else {
-                const guess1 = new Word(textInput);
-                guess1.letters = textInput.split('');
-                console.log(guess1.letters);
-                guessBox.value = "";
-                for (i = 0; i < 5; i++){
-                    row1[i].innerText = guess1.letters[i];
-                };
-                guessBox.placeholder = "Guess 2";
-            }
-        })
-        .catch(err => console.log(`This is an error!`, err))
-    }
+        if (res.title || guess1Input.length !== 5){
+            // alert for invalid word
+            errors[0].style.display = "none";               
+            errors[1].style.display = "block";  
+        } else {
+            errors[0].style.display = "block";
+            errors[1].style.display = "none";
+            const guess1 = new Word(guess1Input);
+            guess1.letters = guess1Input.split('');
+            guessBox.value = "";
+            for (i = 0; i < 5; i++){
+                row1[i].innerText = guess1.letters[i];
+            };
+            guessBox.placeholder = "Guess 2";
+            submitGuess[0].style.display = "none";
+            submitGuess[1].style.display = "inline";
+        }
+    })
+    .catch(err => console.log(`This is an error!`, err))        
 // }, {once : true});
 });

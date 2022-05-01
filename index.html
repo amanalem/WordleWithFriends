@@ -16,8 +16,9 @@
         </div>
     </header>
     <main>
+
+        <!-- PLAYER 1 AREA -->
         <div id="playerOne">
-            <!-- This is where the player 1 screen is -->
             <div id="p1WordChooser">
                 <!-- player one word chooser -->
                 <form>
@@ -26,20 +27,25 @@
                 </form>
             </div>
         </div>
+
+        <!-- PLAYER 2 AREA -->
         <div id="playerTwo">
-            <!-- This is where the player 2 screen is -->
+            <!-- player two word chooser -->
             <div id="p2WordChooser">
-                <!-- player two word chooser -->
                 <form>
-                    <input type="text" name="guessBox" value="" id="guessBox" placeholder="Guess 1">
-                    <input type="submit" name="submitGuess" value="submit" id="submitGuess">
+                    <input type="text" id="guessBox" name="guessBox" value="" placeholder="Guess 1">
+                    <input type="submit" id="submitGuess1" class="submitGuess" name="submitGuess" value="submit1">
+                    <input type="submit" id="submitGuess2" class="submitGuess" name="submitGuess" value="submit2">
+                    <input type="submit" id="submitGuess3" class="submitGuess" name="submitGuess" value="submit3">
+                    <input type="submit" id="submitGuess4" class="submitGuess" name="submitGuess" value="submit4">
+                    <input type="submit" id="submitGuess5" class="submitGuess" name="submitGuess" value="submit5">
+                    <input type="submit" id="submitGuess6" class="submitGuess" name="submitGuess" value="submit6">
                 </form>
                 <h4 id="errorHolder"><br/></h4>
-                <h4 id="errorLength">Word must be exactly 5 letters long. Please try again...</h4>
-                <h4 id="errorNotWord">Word is not in the English dictionary. Please try again...</h4>
+                <h4 id="error">Must guess a 5 letter English word. Please try again...</h4>
             </div>
+            <!-- wordle grid -->
             <div class="gameGrid">
-                <!-- wordle grid -->
                 <div id="row1" class="flexGridRow">
                     <div class="column" id="letter1"></div>
                     <div class="column" id="letter2"></div>
