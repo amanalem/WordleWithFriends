@@ -1,6 +1,13 @@
 // player 1
 let submitWord = document.querySelector('#submitWord');
 
+class Word {
+    constructor(word){
+        this.word = word;
+        this.letters = this.word.split('');
+    }
+}
+
 // player 2
 let submitGuess = document.querySelectorAll('.submitGuess');
 for (i = 1; i < submitGuess.length; i++){
@@ -16,32 +23,42 @@ let row4 = document.querySelectorAll('#row4 .column');
 let row5 = document.querySelectorAll('#row5 .column');
 let row6 = document.querySelectorAll('#row6 .column');
 
-class Word {
-    constructor(word){
-        this.word = word;
-        this.letters = this.word.split('');
-    }
-}
-
 class Guess {
     constructor(word){
         this.word = word;
-        this.letters = this.word.split('');
+        this.letters = this.word.split(''); 
+        // redundant?? most likely...
     }
     gridPush1(){
         for (i = 0; i < 5; i++){
             row1[i].innerText = this.letters[i];
+            if (this.letters[i] == choice.letters[i]){
+                row1[i].style.backgroundColor = "green";
+            } else if (choice.letters.find(el => el == this.letters[i])){
+                row1[i].style.backgroundColor = "yellow";
+            } else {
+                row1[i].style.backgroundColor = "grey";
+            }
+            // instead of row1 row2 3 etc.., can I do qsall for the rows, do row[x][i], and specify what x is depending on what row we are working with.... OR gridPush(num){row[num][i]} 
         };
         guessBox.placeholder = "Guess 2";
         submitGuess[0].style.display = "none";
         submitGuess[1].style.display = "inline";
     }
+    // colorPush1(){
+    //     for (i = 0; i < 5; i++){
+    //         if (this.letters[i] == choice.letters[i]){
+    //             row1[i].style.backgroundColor = "green";
+    //         }
+    //     }
+        
+    // }
 }
 
 // Player one chooses a 5 letter word--------------------------------------->>
 submitWord.addEventListener('click', (e)=> {
     e.preventDefault();
-    let textInput = document.querySelector('#wordBox').value;
+    let textInput = document.querySelector('#wordBox').value.toLowerCase();
     // console.log(textInput);
     if (textInput.length !== 5){
         alert(`Your word must be exactly 5 letters long. Please try again.`)
@@ -56,10 +73,10 @@ submitWord.addEventListener('click', (e)=> {
                 alert(`This is not an English word. Please try again`)
             } else {
                 alert(`Got it! Time to put your friend's skills to the test...`);
-                const choice = new Word(textInput);
-                console.log(choice.letters);
+                // console.log(choice.letters);
                 document.querySelector('#playerOne').style.display = "none";
                 document.querySelector('#playerTwo').style.display = "block";
+                return choice = new Word(textInput);
             }
         })
         .catch(err => console.log(`This is an error!`, err))
@@ -71,7 +88,7 @@ submitWord.addEventListener('click', (e)=> {
 // Guess 1 Submit ----------------------------->>
 submitGuess1.addEventListener('click', (e)=> {
     e.preventDefault();
-    let guess1Input = document.querySelector('#guessBox').value;
+    let guess1Input = document.querySelector('#guessBox').value.toLowerCase();
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess1Input}`;
     fetch(url)
     .then(res => res.json())
@@ -84,8 +101,9 @@ submitGuess1.addEventListener('click', (e)=> {
         } else {
             errors[0].style.display = "block";
             errors[1].style.display = "none";
-            const guess1 = new Guess(guess1Input);
+            let guess1 = new Guess(guess1Input);
             guess1.gridPush1();
+            // guess1.colorPush1();
             guessBox.value = "";
             // for (i = 0; i < 5; i++){
             //     row1[i].innerText = guess1.letters[i];
