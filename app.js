@@ -17,12 +17,16 @@ for (i = 1; i < submitGuess.length; i++){
 let errors = document.querySelectorAll('#p2WordChooser h4')
 
 // let gridRow = document.querySelectorAll('flexGridRow')
+let row0 = document.querySelectorAll('#row0 .column');
 let row1 = document.querySelectorAll('#row1 .column');
 let row2 = document.querySelectorAll('#row2 .column');
 let row3 = document.querySelectorAll('#row3 .column');
 let row4 = document.querySelectorAll('#row4 .column');
 let row5 = document.querySelectorAll('#row5 .column');
-let row6 = document.querySelectorAll('#row6 .column');
+
+let grid = {
+    row: [row0, row1, row2, row3, row4, row5]
+}
 
 class Guess {
     constructor(word){
@@ -30,35 +34,19 @@ class Guess {
         this.letters = this.word.split(''); 
         // this is redundant... lol
     }
-    gridPush1(){
-        for (i = 0; i < 5; i++){
-            row1[i].innerText = this.letters[i];
-            if (this.letters[i] == choice.letters[i]){
-                row1[i].style.backgroundColor = "green";
-            } else if (choice.letters.find(el => el == this.letters[i])){
-                if (this.letters.filter(x=> x == row1[i].length) == 1){
-                    row1[i].style.backgroundColor = "orange";
-                } else {
-                    row1[i].style.backgroundColor = "grey";
-                }
-            } else {
-                row1[i].style.backgroundColor = "grey";
-            }
-            // instead of row1 row2 3 etc.., can I do qsall for the rows, do row[x][i], and specify what x is depending on what row we are working with.... OR gridPush(num){row[num][i]} 
-        };
-        guessBox.placeholder = "Guess 2";
-        submitGuess[0].style.display = "none";
-        submitGuess[1].style.display = "inline";
-    }
-    // gridPush(num){
+    // gridPush1(){
     //     for (i = 0; i < 5; i++){
-    //         gridRow[num][i].innerText = this.letters[i];
+    //         row0[i].innerText = this.letters[i];
     //         if (this.letters[i] == choice.letters[i]){
-    //             gridRow[num][i].style.backgroundColor = "green";
+    //             row0[i].style.backgroundColor = "green";
     //         } else if (choice.letters.find(el => el == this.letters[i])){
-    //             gridRow[num][i].style.backgroundColor = "yellow";
+    //             if (this.letters.filter(x=> x == row0[i].length) == 1){
+    //                 row0[i].style.backgroundColor = "orange";
+    //             } else {
+    //                 row0[i].style.backgroundColor = "grey";
+    //             }
     //         } else {
-    //             gridRow[num][i].style.backgroundColor = "grey";
+    //             row0[i].style.backgroundColor = "grey";
     //         }
     //         // instead of row1 row2 3 etc.., can I do qsall for the rows, do row[x][i], and specify what x is depending on what row we are working with.... OR gridPush(num){row[num][i]} 
     //     };
@@ -66,6 +54,22 @@ class Guess {
     //     submitGuess[0].style.display = "none";
     //     submitGuess[1].style.display = "inline";
     // }
+    gridPush(num){
+        for (i = 0; i < 5; i++){
+            grid.row[num][i].innerText = this.letters[i];
+            if (this.letters[i] == choice.letters[i]){
+                grid.row[num][i].style.backgroundColor = "green";
+            } else if (choice.letters.find(el => el == this.letters[i])){
+                grid.row[num][i].style.backgroundColor = "yellow";
+            } else {
+                grid.row[num][i].style.backgroundColor = "grey";
+            }
+            // instead of row1 row2 3 etc.., can I do qsall for the rows, do row[x][i], and specify what x is depending on what row we are working with.... OR gridPush(num){row[num][i]} 
+        };
+        guessBox.placeholder = "Guess 2";
+        submitGuess[0].style.display = "none";
+        submitGuess[1].style.display = "inline";
+    }
     // colorPush1(){
     //     for (i = 0; i < 5; i++){
     //         if (this.letters[i] == choice.letters[i]){
@@ -123,7 +127,7 @@ submitGuess1.addEventListener('click', (e)=> {
             errors[0].style.display = "block";
             errors[1].style.display = "none";
             let guess1 = new Guess(guess1Input);
-            guess1.gridPush1();
+            guess1.gridPush(0);
             // guess1.colorPush1();
             guessBox.value = "";
             // for (i = 0; i < 5; i++){

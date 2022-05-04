@@ -8,13 +8,13 @@ input {
 }
 
 
-#gridRow1, #gridRow2, #gridRow3, #gridRow4, #gridRow5, #gridRow6 {
+/* #gridRow0, #gridRow1, #gridRow2, #gridRow3, #gridRow4, #gridRow5 {
     display: flex;
     border: 2px solid yellow;
     height: 10vh;
     width: 50vw;
     justify-content: center;
-}
+} */
 
 #playerOne {
     justify-content: center;
@@ -31,7 +31,7 @@ input {
     display: none;
 }
 
-.letterBox1 {
+/* .letterBox1 {
     border: 3px solid black;
     background-color: grey;
     height: 100%;
@@ -70,7 +70,7 @@ input {
     grid-row: 1 / span 1;
     height: 100%;
     width: 20%;
-}
+} */
 
 .flexGridRow {
     display: flex;
