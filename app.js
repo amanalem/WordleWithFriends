@@ -35,9 +35,9 @@ class Guess {
     gridPush(num){
         for (i = 0; i < 5; i++){
             grid.row[num][i].innerText = this.letters[i];
-            if (this.letters[i] == choice.letters[i]){
+            if (this.letters[i] == solution.letters[i]){
                 grid.row[num][i].style.backgroundColor = "green";
-            } else if (choice.letters.find(el => el == this.letters[i])){
+            } else if (solution.letters.find(el => el == this.letters[i])){
                 grid.row[num][i].style.backgroundColor = "yellow";
             } else {
                 grid.row[num][i].style.backgroundColor = "grey";
@@ -67,7 +67,7 @@ submitWord.addEventListener('click', (e)=> {
                 alert(`Got it! Time to put your friend's skills to the test...`);
                 document.querySelector('#playerOne').style.display = "none";
                 document.querySelector('#playerTwo').style.display = "block";
-                return choice = new Word(textInput);
+                return solution = new Word(textInput);
             }
         })
         .catch(err => console.log(`This is an error!`, err))

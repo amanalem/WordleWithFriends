@@ -2,19 +2,14 @@ input {
     text-align: center;
 }
 
+/* #p2WordChooser, form, input, button {
+    margin-bottom: 0;
+} */
+
 #header {
     border: 1px solid gold;
     text-align: center;
 }
-
-
-/* #gridRow0, #gridRow1, #gridRow2, #gridRow3, #gridRow4, #gridRow5 {
-    display: flex;
-    border: 2px solid yellow;
-    height: 10vh;
-    width: 50vw;
-    justify-content: center;
-} */
 
 #playerOne {
     justify-content: center;
@@ -31,46 +26,24 @@ input {
     display: none;
 }
 
-/* .letterBox1 {
-    border: 3px solid black;
-    background-color: grey;
-    height: 100%;
-    width: 20%;
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
+.letterBox {
+    width: 2%;
+    height: 4vh;
+    border: 1px solid black;
+    margin: 1px;
+    line-height: 4vh;
+    border-radius: 10%;
 }
-.letterBox2 {
-    border: 3px solid black;
-    background-color: grey;
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
-    height: 100%;
-    width: 20%;
+
+.letterGrid {
+    margin: 1px;
 }
-.letterBox3 {
-    border: 3px solid black;
-    background-color: grey;
-    grid-column: 3 / span 1;
-    grid-row: 1 / span 1;
-    height: 100%;
-    width: 20%;
+
+.letterRow {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2vh;
 }
-.letterBox4 {
-    border: 3px solid black;
-    background-color: grey;
-    grid-column: 4 / span 1;
-    grid-row: 1 / span 1;
-    height: 100%;
-    width: 20%;
-}
-.letterBox5 {
-    border: 3px solid black;
-    background-color: grey;
-    grid-column: 5 / span 1;
-    grid-row: 1 / span 1;
-    height: 100%;
-    width: 20%;
-} */
 
 .flexGridRow {
     display: flex;
@@ -83,7 +56,7 @@ input {
 }
 
 .flexGridRow .column {
-    width: 18%;
+    width: 17%;
     height: 8vh;
     border: 1px solid black;
     margin: 0 auto;
@@ -96,14 +69,16 @@ input {
 
 #errorHolder {
     color: transparent;
-    margin: 2% 0 0 0;
+    margin: 1% 0 0 0;
     display: block;
 }
 
 #error {
     color: red;
-    margin: 2% 0 0 0;
+    margin: 1% 0 0 0;
     display: none;
 }
+
+
 
 
