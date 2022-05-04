@@ -27,20 +27,52 @@ let grid = {
     row: [row0, row1, row2, row3, row4, row5]
 }
 
+let letterRow0 = document.querySelectorAll('letterRow0 .letterBox');
+let letterRow1 = document.querySelectorAll('letterRow1 .letterBox');
+let letterRow2 = document.querySelectorAll('letterRow2 .letterBox');
+
+let keyboard = {
+    row: [letterRow0, letterRow1, letterRow2]
+}
+
 class Guess {
     constructor(word){
         this.word = word;
         this.letters = this.word.split(''); 
     }
+    // gridPush(num){
+    //     for (i = 0; i < 5; i++){
+    //         grid.row[num][i].innerText = this.letters[i];
+    //         if (this.letters[i] == solution.letters[i]){
+    //             grid.row[num][i].style.backgroundColor = "green";
+    //         } else if (solution.letters.find(el => el == this.letters[i])){
+    //             grid.row[num][i].style.backgroundColor = "yellow";
+    //             if (this.letters.filter(x=> x == grid.row[num][i].length) == 1){
+    //                 grid.row[num][i].style.backgroundColor = "yellow";
+    //             } else {
+    //                 grid.row[num][i].style.backgroundColor = "grey";
+    //             }
+    //         } else {
+    //             grid.row[num][i].style.backgroundColor = "grey";
+    //         }
+    //     };
+    //     guessBox.placeholder = "Guess 2";
+    //     submitGuess[0].style.display = "none";
+    //     submitGuess[1].style.display = "inline";
+    // }
     gridPush(num){
         for (i = 0; i < 5; i++){
             grid.row[num][i].innerText = this.letters[i];
             if (this.letters[i] == solution.letters[i]){
                 grid.row[num][i].style.backgroundColor = "green";
-            } else if (solution.letters.find(el => el == this.letters[i])){
-                grid.row[num][i].style.backgroundColor = "yellow";
+            } else if (solution.letters.find(el => el == this.letters[i])) {
+                grid.row[num][i].style.backgroundColor = "yellow"
             } else {
-                grid.row[num][i].style.backgroundColor = "grey";
+                if (this.letters.filter(x=> x == grid.row[num][i].length) == 1){
+                    grid.row[num][i].style.backgroundColor = "yellow";
+                } else {
+                    grid.row[num][i].style.backgroundColor = "grey";
+                }
             }
         };
         guessBox.placeholder = "Guess 2";
