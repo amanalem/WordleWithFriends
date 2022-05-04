@@ -22,3 +22,7 @@
 // if (baige.letters[4] == bangs.letters[4]){
 //     console.log('this works')
 // }
+
+
+let gridRow = [[1,2,3], [4,5,6], [7,8,9]];
+console.log(gridRow[1][1]);

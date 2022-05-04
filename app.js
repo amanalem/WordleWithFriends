@@ -16,6 +16,7 @@ for (i = 1; i < submitGuess.length; i++){
 
 let errors = document.querySelectorAll('#p2WordChooser h4')
 
+// let gridRow = document.querySelectorAll('flexGridRow')
 let row1 = document.querySelectorAll('#row1 .column');
 let row2 = document.querySelectorAll('#row2 .column');
 let row3 = document.querySelectorAll('#row3 .column');
@@ -27,7 +28,7 @@ class Guess {
     constructor(word){
         this.word = word;
         this.letters = this.word.split(''); 
-        // redundant?? most likely...
+        // this is redundant... lol
     }
     gridPush1(){
         for (i = 0; i < 5; i++){
@@ -35,7 +36,11 @@ class Guess {
             if (this.letters[i] == choice.letters[i]){
                 row1[i].style.backgroundColor = "green";
             } else if (choice.letters.find(el => el == this.letters[i])){
-                row1[i].style.backgroundColor = "yellow";
+                if (this.letters.filter(x=> x == row1[i].length) == 1){
+                    row1[i].style.backgroundColor = "orange";
+                } else {
+                    row1[i].style.backgroundColor = "grey";
+                }
             } else {
                 row1[i].style.backgroundColor = "grey";
             }
@@ -45,6 +50,22 @@ class Guess {
         submitGuess[0].style.display = "none";
         submitGuess[1].style.display = "inline";
     }
+    // gridPush(num){
+    //     for (i = 0; i < 5; i++){
+    //         gridRow[num][i].innerText = this.letters[i];
+    //         if (this.letters[i] == choice.letters[i]){
+    //             gridRow[num][i].style.backgroundColor = "green";
+    //         } else if (choice.letters.find(el => el == this.letters[i])){
+    //             gridRow[num][i].style.backgroundColor = "yellow";
+    //         } else {
+    //             gridRow[num][i].style.backgroundColor = "grey";
+    //         }
+    //         // instead of row1 row2 3 etc.., can I do qsall for the rows, do row[x][i], and specify what x is depending on what row we are working with.... OR gridPush(num){row[num][i]} 
+    //     };
+    //     guessBox.placeholder = "Guess 2";
+    //     submitGuess[0].style.display = "none";
+    //     submitGuess[1].style.display = "inline";
+    // }
     // colorPush1(){
     //     for (i = 0; i < 5; i++){
     //         if (this.letters[i] == choice.letters[i]){
