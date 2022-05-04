@@ -77,7 +77,7 @@ submitWord.addEventListener('click', (e)=> {
 // screen changes to player 2 view...
 
 // Guess 1 Submit ----------------------------->>
-submitGuess1.addEventListener('click', (e)=> {
+submitGuess[0].addEventListener('click', (e)=> {
     e.preventDefault();
     let guess1Input = document.querySelector('#guessBox').value.toLowerCase();
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess1Input}`;
