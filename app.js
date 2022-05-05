@@ -35,6 +35,13 @@ let keyboard = {
     row: [letterRow0, letterRow1, letterRow2]
 }
 
+// object with arrays that define what colors are to assign to letters in keyboard
+letterColor = {
+    green: [],
+    yellow: [],
+    grey: []
+}
+
 class Guess {
     constructor(word){
         this.word = word;
@@ -65,6 +72,7 @@ class Guess {
             grid.row[num][i].innerText = this.letters[i];
             if (this.letters[i] == solution.letters[i]){
                 grid.row[num][i].style.backgroundColor = "green";
+                // letterColor.green.push(this.letters[i])
             } else if (solution.letters.find(el => el == this.letters[i])) {
                 grid.row[num][i].style.backgroundColor = "yellow"
             } else {
@@ -78,6 +86,15 @@ class Guess {
         guessBox.placeholder = "Guess 2";
         submitGuess[0].style.display = "none";
         submitGuess[1].style.display = "inline";
+    }
+    pushGreen(){
+
+    }
+    pushYellow(){
+
+    }
+    pushGrey(){
+        
     }
 }
 
