@@ -34,3 +34,43 @@
 //     at <anonymous>:1:6
 // (anonymous) @ VM968:1
 // 18:57:45.679 nums.filter(x=> x == 2).length
+
+
+
+
+
+
+
+
+
+
+// gridPush(num){
+    //     for (i = 0; i < 5; i++){
+    //         grid.row[num][i].innerText = this.letters[i];
+    //         if (this.letters[i] == solution.letters[i]){
+    //             grid.row[num][i].style.backgroundColor = "green";
+    //         } else if (solution.letters.find(el => el == this.letters[i])){
+    //             grid.row[num][i].style.backgroundColor = "yellow";
+    //             if (this.letters.filter(x=> x == grid.row[num][i].length) == 1){
+    //                 grid.row[num][i].style.backgroundColor = "yellow";
+    //             } else {
+    //                 grid.row[num][i].style.backgroundColor = "grey";
+    //             }
+    //         } else {
+    //             grid.row[num][i].style.backgroundColor = "grey";
+    //         }
+    //     };
+    //     guessBox.placeholder = "Guess 2";
+    //     submitGuess[0].style.display = "none";
+    //     submitGuess[1].style.display = "inline";
+    // }
+
+
+
+
+    // We need to push the letters of our word in an array 
+
+let test = ["w", "o", "r", "d"]
+let realTest = test;
+realTest[1] = "*";
+console.log(realTest);
