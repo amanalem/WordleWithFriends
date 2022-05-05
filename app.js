@@ -72,29 +72,32 @@ class Guess {
             grid.row[num][i].innerText = this.letters[i];
             if (this.letters[i] == solution.letters[i]){
                 grid.row[num][i].style.backgroundColor = "green";
-                // letterColor.green.push(this.letters[i])
+                this.pushGreen();
             } else if (solution.letters.find(el => el == this.letters[i])) {
                 grid.row[num][i].style.backgroundColor = "yellow"
+                this.pushYellow();
             } else {
                 if (this.letters.filter(x=> x == grid.row[num][i].length) == 1){
                     grid.row[num][i].style.backgroundColor = "yellow";
                 } else {
                     grid.row[num][i].style.backgroundColor = "grey";
+                    this.pushGrey();
                 }
             }
+            this.keyboardPush();
         };
-        guessBox.placeholder = "Guess 2";
-        submitGuess[0].style.display = "none";
-        submitGuess[1].style.display = "inline";
     }
     pushGreen(){
-
+        // This will push letters into letterColor.green[]
     }
     pushYellow(){
-
+        // This will push letters into letterColor.Yellow[]
     }
     pushGrey(){
-        
+        // This will push letters into letterColor.Grey
+    }
+    keyboardPush(){
+        // This will take letters from the letterColor object and color the keyboard squares according to which array the letters are in.
     }
 }
 
@@ -143,6 +146,13 @@ submitGuess[0].addEventListener('click', (e)=> {
             let guess1 = new Guess(guess1Input);
             guess1.gridPush(0);
             guessBox.value = "";
+        }
+        if (guess1.word == solution.word){
+            alert('YOU WIN!')
+        } else {
+            guessBox.placeholder = "Guess 2";
+            submitGuess[0].style.display = "none";
+            submitGuess[1].style.display = "inline";
         }
     })
     .catch(err => console.log(`This is an error!`, err));
