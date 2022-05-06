@@ -1,38 +1,39 @@
 input {
     text-align: center;
 }
-
-/* #p2WordChooser, form, input, button {
-    margin-bottom: 0;
-} */
-
+body {
+    color: white;
+    background-color: rgb(13, 11, 11);
+}
 #header {
-    border: 1px solid gold;
+    /* border: 1px solid gold; */
     text-align: center;
+    margin-top: 30%;
 }
 
 #playerOne {
     justify-content: center;
     margin: auto;
     text-align: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 #playerTwo {
     justify-content: center;
     margin: auto;
     text-align: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: none;
 }
 
 .letterBox {
-    width: 2%;
+    width: 3vw;
     height: 4vh;
-    border: 1px solid black;
-    margin: 1px;
+    /* border: 1px solid black; */
+    margin: 2px;
     line-height: 4vh;
     border-radius: 10%;
+    background-color: rgb(150, 148, 148);
 }
 
 .letterGrid {
@@ -51,16 +52,17 @@ input {
     margin-bottom: 2vh;
 }
 .gameGrid {
-    border: 2px solid pink;
-    margin: 1vh 35vw 0 35vw;
+    /* border: 2px solid pink; */
+    margin: 1vh 35vw 5vh 35vw;
 }
 
 .flexGridRow .column {
     width: 17%;
     height: 8vh;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 0 auto;
     line-height: 8vh;
+    background-color: rgb(150, 148, 148);
 }
 
 #guessSubmit2, #guessSubmit3, #guessSubmit4, #guessSubmit5, #guessSubmit6 {
