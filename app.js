@@ -44,14 +44,22 @@ class Guess {
             grid.row[num][i].innerText = this.letters[i].toUpperCase();
             if (!solution.rightAnswer.includes(this.letters[i])){
                 grid.row[num][i].style.backgroundColor = "grey";
-                document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "grey"; 
+                if (document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "green" || document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "yellow" ){
+                    console.log('The color is already correct');
+                } else {
+                    document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "grey"; 
+                }
             } else {
                 if (this.letters[i] == solution.rightAnswer[i]){
                     grid.row[num][i].style.backgroundColor = "green";
                     document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "green";
                 } else {
                     grid.row[num][i].style.backgroundColor = "yellow";
-                    document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "yellow";
+                    if (document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "green"){
+                        console.log('The color is already correct');
+                    } else {
+                        document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "yellow";
+                    }
                 }
                 solution.rightAnswer[solution.rightAnswer.indexOf(this.letters[i])] = "*";
             }
