@@ -34,7 +34,32 @@ let letterRow1 = document.querySelectorAll('letterRow1 .letterBox');
 let letterRow2 = document.querySelectorAll('letterRow2 .letterBox');
 
 let keyboard = {
-    row: [letterRow0, letterRow1, letterRow2]
+    a: document.querySelector('#a'),
+    b: document.querySelector('#b'),
+    c: document.querySelector('#c'),
+    d: document.querySelector('#d'),
+    e: document.querySelector('#e'),
+    f: document.querySelector('#f'),
+    g: document.querySelector('#g'),
+    h: document.querySelector('#h'),
+    i: document.querySelector('#i'),
+    j: document.querySelector('#j'),
+    k: document.querySelector('#k'),
+    l: document.querySelector('#l'),
+    m: document.querySelector('#m'),
+    n: document.querySelector('#n'),
+    o: document.querySelector('#o'),
+    p: document.querySelector('#p'),
+    q: document.querySelector('#q'),
+    r: document.querySelector('#r'),
+    s: document.querySelector('#s'),
+    t: document.querySelector('#t'),
+    u: document.querySelector('#u'),
+    v: document.querySelector('#v'),
+    w: document.querySelector('#w'),
+    x: document.querySelector('#x'),
+    y: document.querySelector('#y'),
+    z: document.querySelector('#z')
 }
 
 // object with arrays that define what colors are to assign to letters in keyboard
