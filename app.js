@@ -33,59 +33,25 @@ let letterRow0 = document.querySelectorAll('letterRow0 .letterBox');
 let letterRow1 = document.querySelectorAll('letterRow1 .letterBox');
 let letterRow2 = document.querySelectorAll('letterRow2 .letterBox');
 
-let keyboard = {
-    a: document.querySelector('#a'),
-    b: document.querySelector('#b'),
-    c: document.querySelector('#c'),
-    d: document.querySelector('#d'),
-    e: document.querySelector('#e'),
-    f: document.querySelector('#f'),
-    g: document.querySelector('#g'),
-    h: document.querySelector('#h'),
-    i: document.querySelector('#i'),
-    j: document.querySelector('#j'),
-    k: document.querySelector('#k'),
-    l: document.querySelector('#l'),
-    m: document.querySelector('#m'),
-    n: document.querySelector('#n'),
-    o: document.querySelector('#o'),
-    p: document.querySelector('#p'),
-    q: document.querySelector('#q'),
-    r: document.querySelector('#r'),
-    s: document.querySelector('#s'),
-    t: document.querySelector('#t'),
-    u: document.querySelector('#u'),
-    v: document.querySelector('#v'),
-    w: document.querySelector('#w'),
-    x: document.querySelector('#x'),
-    y: document.querySelector('#y'),
-    z: document.querySelector('#z')
-}
-
-// object with arrays that define what colors are to assign to letters in keyboard
-letterColor = {
-    green: [],
-    yellow: [],
-    grey: []
-}
-
-
 
 class Guess {
     constructor(word){
         this.word = word;
-        this.letters = this.word.split(''); 
+        this.letters = this.word.split('');
     }
     gridPush(num){
         for (i = 0; i < 5; i++){
             grid.row[num][i].innerText = this.letters[i].toUpperCase();
             if (!solution.rightAnswer.includes(this.letters[i])){
                 grid.row[num][i].style.backgroundColor = "grey";
+                document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "grey"; 
             } else {
                 if (this.letters[i] == solution.rightAnswer[i]){
                     grid.row[num][i].style.backgroundColor = "green";
+                    document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "green";
                 } else {
                     grid.row[num][i].style.backgroundColor = "yellow";
+                    document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "yellow";
                 }
                 solution.rightAnswer[solution.rightAnswer.indexOf(this.letters[i])] = "*";
             }
