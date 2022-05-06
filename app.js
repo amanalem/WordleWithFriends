@@ -85,6 +85,7 @@ submitWord.addEventListener('click', (e)=> {
                 alert(`Got it! Time to put your friend's skills to the test...`);
                 document.querySelector('#playerOne').style.display = "none";
                 document.querySelector('#playerTwo').style.display = "block";
+                document.querySelector('header').style.marginTop = "2%";
                 return solution = new Word(textInput);
             }
         })
