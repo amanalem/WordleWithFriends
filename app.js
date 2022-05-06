@@ -53,7 +53,7 @@ class Guess {
     }
     gridPush(num){
         for (i = 0; i < 5; i++){
-            grid.row[num][i].innerText = this.letters[i];
+            grid.row[num][i].innerText = this.letters[i].toUpperCase();
             if (!solution.rightAnswer.includes(this.letters[i])){
                 grid.row[num][i].style.backgroundColor = "grey";
             } else {
@@ -203,6 +203,7 @@ submitGuess[0].addEventListener('click', (e)=> {
                 submitGuess[1].style.display = "inline";
             }
         };
+        
     })
     .catch(err => console.log(`This is an error!`, err));
 });
