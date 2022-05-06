@@ -11,8 +11,10 @@ class Word {
 
 // player 2
 let submitGuess = document.querySelectorAll('.submitGuess');
+let guessBox = document.querySelectorAll('.guessBox');
 for (i = 1; i < submitGuess.length; i++){
     submitGuess[i].style.display = 'none';
+    guessBox[i].style.display = 'none';
 }
 
 let errors = document.querySelectorAll('#p2WordChooser h4')
@@ -98,7 +100,7 @@ submitWord.addEventListener('click', (e)=> {
 // Guess 1 Submit ----------------------------->>
 submitGuess[0].addEventListener('click', (e)=> {
     e.preventDefault();
-    let guess1Input = document.querySelector('#guessBox').value.toLowerCase();
+    let guess1Input = document.querySelector('#guessBox1').value.toLowerCase();
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess1Input}`;
     fetch(url)
     .then(res => res.json())
@@ -112,13 +114,15 @@ submitGuess[0].addEventListener('click', (e)=> {
             errors[1].style.display = "none";
             let guess1 = new Guess(guess1Input);
             guess1.gridPush(0);
-            guessBox.value = "";
+            // guessBox.value = "";
             if (guess1.word == solution.word){
                 alert('INCREDIBLE! You win!')
             } else {
-                guessBox.placeholder = "Guess 2";
+                // guessBox.placeholder = "Guess 2";
                 submitGuess[0].style.display = "none";
+                guessBox[0].style.display = "none";
                 submitGuess[1].style.display = "inline";
+                guessBox[1].style.display = "inline";
                 for (i = 0; i < 5; i++) {
                     solution.rightAnswer[i] = solution.letters[i];
                 }
@@ -131,7 +135,7 @@ submitGuess[0].addEventListener('click', (e)=> {
 // Guess 2 Submit ----------------------------->>
 submitGuess[1].addEventListener('click', (e)=> {
     e.preventDefault();
-    let guess2Input = document.querySelector('#guessBox').value.toLowerCase();
+    let guess2Input = document.querySelector('#guessBox2').value.toLowerCase();
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess2Input}`;
     fetch(url)
     .then(res => res.json())
