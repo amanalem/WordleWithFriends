@@ -42,22 +42,22 @@ class Guess {
         for (i = 0; i < 5; i++){
             grid.row[num][i].innerText = this.letters[i].toUpperCase();
             if (!solution.rightAnswer.includes(this.letters[i])){
-                grid.row[num][i].style.backgroundColor = "grey";
-                if (document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "green" || document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "yellow" ){
+                grid.row[num][i].style.backgroundColor = "#353336" /* Grey */;
+                if (document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "#2fbd71" /* Green */ || document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "#cfb234" /* Yellow */ ){
                     console.log('The color is already correct');
                 } else {
-                    document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "grey"; 
+                    document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "#353336" /* Grey */; 
                 }
             } else {
                 if (this.letters[i] == solution.rightAnswer[i]){
-                    grid.row[num][i].style.backgroundColor = "green";
-                    document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "green";
+                    grid.row[num][i].style.backgroundColor = "#2fbd71" /* Green */;
+                    document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "#2fbd71" /* Green */;
                 } else {
-                    grid.row[num][i].style.backgroundColor = "yellow";
-                    if (document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "green"){
+                    grid.row[num][i].style.backgroundColor = "#cfb234" /* Yellow */;
+                    if (document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "#2fbd71" /* Green */){
                         console.log('The color is already correct');
                     } else {
-                        document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "yellow";
+                        document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "#cfb234" /* Yellow */;
                     }
                 }
                 solution.rightAnswer[solution.rightAnswer.indexOf(this.letters[i])] = "*";

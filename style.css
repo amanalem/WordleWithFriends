@@ -30,7 +30,7 @@ header {
     width: 3vw;
     height: 4vh;
     /* border: 1px solid black; */
-    margin: 2px;
+    margin: .2em;
     line-height: 4vh;
     border-radius: 10%;
     background-color: rgb(150, 148, 148);
@@ -76,7 +76,7 @@ header {
 }
 
 #error {
-    color: red;
+    color: white;
     margin: 1% 0 0 0;
     display: none;
 }
