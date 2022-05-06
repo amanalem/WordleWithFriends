@@ -7,7 +7,6 @@ class Word {
         this.letters = this.word.split('');
         this.rightAnswer = this.letters;
     }
-    // static commonLetters()
 }
 
 // player 2
@@ -65,86 +64,6 @@ class Guess {
             }
         }
         solution.rightAnswer = solution.letters;
-    }
-    // gridPush(num){
-    //     for (i = 0; i < 5; i++){
-    //         grid.row[num][i].innerText = this.letters[i];
-    //         if (this.letters[i] == solution.letters[i]){
-    //             grid.row[num][i].style.backgroundColor = "green";
-    //             // this.pushGreen();
-    //         } else {
-    //             if (solution.letters.includes(this.letters[i])) {
-    //                 if (this.letters.filter(x=> x == grid.row[num][i].length) == 1){
-    //                     grid.row[num][i].style.backgroundColor = "yellow";
-    //                 } else {
-    //                 grid.row[num][i].style.backgroundColor = "grey"
-    //                 // this.pushYellow();
-    //                 }
-    //             } else {
-    //                 grid.row[num][i].style.backgroundColor = "grey";
-    //                 // this.pushGrey();
-    //             }
-    //         }
-    //         // this.keyboardPush();
-    //     };
-    // }
-
-    // worked with Justin
-    // gridPush(num){
-    //     for (i = 0; i < 5; i++){
-    //         grid.row[num][i].innerText = this.letters[i];
-    //         if (this.letters[i] == solution.letters[i]){
-    //             grid.row[num][i].style.backgroundColor = "green";
-    //             // this.pushGreen();
-    //         } else if (!solution.letters.includes(this.letters[i])){
-    //             grid.row[num][i].style.backgroundColor = "grey";
-    //         } else {
-    //             if (this.letters.filter(x=> x == grid.row[num][i].length) !== 1){
-    //                 grid.row[num][i].style.backgroundColor = "grey";
-    //             } else if (solution.letters.find(el => el == this.letters[i])) {
-    //                 grid.row[num][i].style.backgroundColor = "yellow"
-    //                 // this.pushYellow();
-    //             // }else {
-    //             //     grid.row[num][i].style.backgroundColor = "grey";
-    //             //     // this.pushGrey();
-    //             }
-    //         }
-    //         // this.keyboardPush();
-    //     };
-    // }
-    
-    // OG
-    // gridPush(num){
-    //     for (i = 0; i < 5; i++){
-    //         grid.row[num][i].innerText = this.letters[i];
-    //         if (this.letters[i] == solution.letters[i]){
-    //             grid.row[num][i].style.backgroundColor = "green";
-    //         } else if (solution.letters.find(el => el == this.letters[i])){
-    //             grid.row[num][i].style.backgroundColor = "yellow";
-    //             if (this.letters.filter(x=> x == grid.row[num][i].length) == 1){
-    //                 grid.row[num][i].style.backgroundColor = "yellow";
-    //             } else {
-    //                 grid.row[num][i].style.backgroundColor = "grey";
-    //             }
-    //         } else {
-    //             grid.row[num][i].style.backgroundColor = "grey";
-    //         }
-    //     };
-    //     guessBox.placeholder = "Guess 2";
-    //     submitGuess[0].style.display = "none";
-    //     submitGuess[1].style.display = "inline";
-    // }
-    pushGreen(){
-        // This will push letters into letterColor.green[]
-    }
-    pushYellow(){
-        // This will push letters into letterColor.Yellow[]
-    }
-    pushGrey(){
-        // This will push letters into letterColor.Grey[]
-    }
-    keyboardPush(){
-        // This will take letters from the letterColor object and color the keyboard squares according to which array the letters are in.
     }
 }
 
