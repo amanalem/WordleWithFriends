@@ -70,7 +70,42 @@
 
     // We need to push the letters of our word in an array 
 
-let test = ["w", "o", "r", "d"]
-let realTest = test;
-realTest[1] = "*";
-console.log(realTest);
+// let test = ["w", "o", "r", "d"]
+// let realTest = test;
+// realTest[1] = "*";
+// console.log(realTest);
+
+
+
+
+
+// Guess 2 Submit ----------------------------->>
+submitGuess[1].addEventListener('click', (e)=> {
+    e.preventDefault();
+    let guess2Input = document.querySelector('#guessBox').value.toLowerCase();
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess2Input}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(res => {
+        if (res.title || guess2Input.length !== 5){
+            // alert for invalid word
+            errors[0].style.display = "none";               
+            errors[1].style.display = "block";  
+        } else {
+            errors[0].style.display = "block";
+            errors[1].style.display = "none";
+            let guess2 = new Guess(guess2Input);
+            guess2.gridPush(1);
+            guessBox.value = "";
+            if (guess2.word == solution.word){
+                alert('Magnificent! YOU WIN!')
+            } else {
+                guessBox.placeholder = "Guess 2";
+                submitGuess[1].style.display = "none";
+                submitGuess[2].style.display = "inline";
+            }
+        };
+        
+    })
+    .catch(err => console.log(`This is an error!`, err));
+});

@@ -5,7 +5,7 @@ class Word {
     constructor(word){
         this.word = word;
         this.letters = this.word.split('');
-        this.rightAnswer = this.letters;
+        this.rightAnswer = this.word.split('');
     }
 }
 
@@ -63,7 +63,6 @@ class Guess {
                 solution.rightAnswer[solution.rightAnswer.indexOf(this.letters[i])] = "*";
             }
         }
-        solution.rightAnswer = solution.letters;
     }
 }
 
@@ -115,14 +114,49 @@ submitGuess[0].addEventListener('click', (e)=> {
             guess1.gridPush(0);
             guessBox.value = "";
             if (guess1.word == solution.word){
-                alert('YOU WIN!')
+                alert('INCREDIBLE! You win!')
             } else {
                 guessBox.placeholder = "Guess 2";
                 submitGuess[0].style.display = "none";
                 submitGuess[1].style.display = "inline";
+                for (i = 0; i < 5; i++) {
+                    solution.rightAnswer[i] = solution.letters[i];
+                }
             }
         };
-        
+    })
+    .catch(err => console.log(`This is an error!`, err));
+});
+
+// Guess 2 Submit ----------------------------->>
+submitGuess[1].addEventListener('click', (e)=> {
+    e.preventDefault();
+    let guess2Input = document.querySelector('#guessBox').value.toLowerCase();
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess2Input}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(res => {
+        if (res.title || guess2Input.length !== 5){
+            // alert for invalid word
+            errors[0].style.display = "none";               
+            errors[1].style.display = "block";  
+        } else {
+            errors[0].style.display = "block";
+            errors[1].style.display = "none";
+            let guess2 = new Guess(guess2Input);
+            guess2.gridPush(1);
+            guessBox.value = "";
+            if (guess2.word == solution.word){
+                alert('Magnificent! You win!')
+            } else {
+                guessBox.placeholder = "Guess 3";
+                submitGuess[1].style.display = "none";
+                submitGuess[2].style.display = "inline";
+                for (i = 0; i < 5; i++) {
+                    solution.rightAnswer[i] = solution.letters[i];
+                }
+            }
+        };
     })
     .catch(err => console.log(`This is an error!`, err));
 });
