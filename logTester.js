@@ -143,29 +143,65 @@
 
 // grey - "#353336"
 
-// Guess 3 Submit ----------------------------->>
-submitGuess[2].addEventListener('click', (e)=> {
+// // Guess 3 Submit ----------------------------->>
+// submitGuess[2].addEventListener('click', (e)=> {
+//     e.preventDefault();
+//     let guess3Input = document.querySelector('#guessBox3').value.toLowerCase();
+//     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess3Input}`;
+//     fetch(url)
+//     .then(res => res.json())
+//     .then(res => {
+//         if (res.title || guess3Input.length !== 5){
+//             // alert for invalid word
+//             errors[0].style.display = "none";               
+//             errors[1].style.display = "block";  
+//         } else {
+//             errors[0].style.display = "block";
+//             errors[1].style.display = "none";
+//             let guess3 = new Guess(guess3Input);
+//             guess3.gridPush(2);
+//             guessBox.value = "";
+//             if (guess3.word == solution.word){
+//                 alert('Nicely done! You win!')
+//             } else {
+//                 submitGuess[2].style.display = "none";
+//                 submitGuess[3].style.display = "inline";
+//                 for (i = 0; i < 5; i++) {
+//                     solution.rightAnswer[i] = solution.letters[i];
+//                 }
+//             }
+//         };
+//     })
+//     .catch(err => console.log(`This is an error!`, err));
+// });
+
+
+
+// Guess 4 Submit ----------------------------->>
+submitGuess[3].addEventListener('click', (e)=> {
     e.preventDefault();
-    let guess3Input = document.querySelector('#guessBox3').value.toLowerCase();
-    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess3Input}`;
+    let guess4Input = document.querySelector('#guessBox4').value.toLowerCase();
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess4Input}`;
     fetch(url)
     .then(res => res.json())
     .then(res => {
-        if (res.title || guess3Input.length !== 5){
+        if (res.title || guess4Input.length !== 5){
             // alert for invalid word
             errors[0].style.display = "none";               
             errors[1].style.display = "block";  
         } else {
             errors[0].style.display = "block";
             errors[1].style.display = "none";
-            let guess3 = new Guess(guess3Input);
-            guess3.gridPush(2);
+            let guess4 = new Guess(guess4Input);
+            guess4.gridPush(2);
             guessBox.value = "";
-            if (guess3.word == solution.word){
-                alert('Nicely done! You win!')
+            if (guess4.word == solution.word){
+                alert('Great! You win!')
             } else {
-                submitGuess[2].style.display = "none";
-                submitGuess[3].style.display = "inline";
+                submitGuess[3].style.display = "none";
+                guessBox[3].style.display = "none";
+                submitGuess[4].style.display = "inline";
+                guessBox[4].style.display = "inline";
                 for (i = 0; i < 5; i++) {
                     solution.rightAnswer[i] = solution.letters[i];
                 }
@@ -174,4 +210,3 @@ submitGuess[2].addEventListener('click', (e)=> {
     })
     .catch(err => console.log(`This is an error!`, err));
 });
-
