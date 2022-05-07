@@ -79,7 +79,8 @@ submitWord.addEventListener('click', (e)=> {
                 alert(`Got it! Time to put your friend's skills to the test...`);
                 document.querySelector('#playerOne').style.display = "none";
                 document.querySelector('#playerTwo').style.display = "block";
-                document.querySelector('header').style.marginTop = "2%";
+                document.querySelector('#p1Header').id = "p2Header";
+                document.querySelector('#bigHeader').id = "";
                 return solution = new Word(textInput);
             }
         })
@@ -107,11 +108,9 @@ submitGuess[0].addEventListener('click', (e)=> {
             errors[1].style.display = "none";
             let guess1 = new Guess(guess1Input);
             guess1.gridPush(0);
-            // guessBox.value = "";
             if (guess1.word == solution.word){
                 alert('Incredible! You win!')
             } else {
-                // guessBox.placeholder = "Guess 2";
                 submitGuess[0].style.display = "none";
                 guessBox[0].style.display = "none";
                 submitGuess[1].style.display = "inline";

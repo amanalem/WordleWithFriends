@@ -1,28 +1,36 @@
 input {
     text-align: center;
 }
+
 body {
     color: white;
     background-color: rgb(13, 11, 11);
 }
-header {
-    /* border: 1px solid gold; */
+
+#bigHeader {
+    font-size: 300%;
+}
+
+#p1Header {
     text-align: center;
     margin-top: 20%;
+}
+
+#p2Header {
+    text-align: center;
+    margin-top: 2%;
 }
 
 #playerOne {
     justify-content: center;
     margin: auto;
     text-align: center;
-    /* border: 1px solid black; */
 }
 
 #playerTwo {
     justify-content: center;
     margin: auto;
     text-align: center;
-    /* border: 1px solid red; */
     display: none;
 }
 
