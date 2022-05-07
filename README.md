@@ -38,8 +38,11 @@ by Aman Alem
 *	As a player, I would like to use the onscreen keyboard to enter my guesses into the guess text box.
 
 ## Wire Frames
-### Start / Solver Pages
-![player 1 / player 2 pages](https://github.com/amanalem/WordleWithFriends/files/8645221/WireFramesWWF.pdf)
+### Start / Player 1 Screen
+![player 1 word chooser](https://user-images.githubusercontent.com/101615210/167256133-7c6adb3b-35ae-452c-b83b-cd7be8195a47.png)
+
+### Solver / Player 2 Screen
+![player 2 word solver](https://user-images.githubusercontent.com/101615210/167256165-8fa3c37a-416c-411c-b03d-8112a5aeda57.png)
 
 
 ## Major Hurdles
