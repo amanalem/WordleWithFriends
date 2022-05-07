@@ -177,31 +177,100 @@
 
 
 
-// Guess 4 Submit ----------------------------->>
-submitGuess[3].addEventListener('click', (e)=> {
+// // Guess 4 Submit ----------------------------->>
+// submitGuess[3].addEventListener('click', (e)=> {
+//     e.preventDefault();
+//     let guess4Input = document.querySelector('#guessBox4').value.toLowerCase();
+//     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess4Input}`;
+//     fetch(url)
+//     .then(res => res.json())
+//     .then(res => {
+//         if (res.title || guess4Input.length !== 5){
+//             // alert for invalid word
+//             errors[0].style.display = "none";               
+//             errors[1].style.display = "block";  
+//         } else {
+//             errors[0].style.display = "block";
+//             errors[1].style.display = "none";
+//             let guess4 = new Guess(guess4Input);
+//             guess4.gridPush(2);
+//             guessBox.value = "";
+//             if (guess4.word == solution.word){
+//                 alert('Great! You win!')
+//             } else {
+//                 submitGuess[3].style.display = "none";
+//                 guessBox[3].style.display = "none";
+//                 submitGuess[4].style.display = "inline";
+//                 guessBox[4].style.display = "inline";
+//                 for (i = 0; i < 5; i++) {
+//                     solution.rightAnswer[i] = solution.letters[i];
+//                 }
+//             }
+//         };
+//     })
+//     .catch(err => console.log(`This is an error!`, err));
+// });
+
+
+// // Guess 5 Submit ----------------------------->>
+// submitGuess[4].addEventListener('click', (e)=> {
+//     e.preventDefault();
+//     let guess5Input = document.querySelector('#guessBox5').value.toLowerCase();
+//     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess5Input}`;
+//     fetch(url)
+//     .then(res => res.json())
+//     .then(res => {
+//         if (res.title || guess5Input.length !== 5){
+//             // alert for invalid word
+//             errors[0].style.display = "none";               
+//             errors[1].style.display = "block";  
+//         } else {
+//             errors[0].style.display = "block";
+//             errors[1].style.display = "none";
+//             let guess5 = new Guess(guess5Input);
+//             guess5.gridPush(4);
+//             guessBox.value = "";
+//             if (guess5.word == solution.word){
+//                 alert('Good job! You win!')
+//             } else {
+//                 submitGuess[4].style.display = "none";
+//                 guessBox[4].style.display = "none";
+//                 submitGuess[5].style.display = "inline";
+//                 guessBox[5].style.display = "inline";
+//                 for (i = 0; i < 5; i++) {
+//                     solution.rightAnswer[i] = solution.letters[i];
+//                 }
+//             }
+//         };
+//     })
+//     .catch(err => console.log(`This is an error!`, err));
+// });
+
+// Guess 6 Submit ----------------------------->>
+submitGuess[5].addEventListener('click', (e)=> {
     e.preventDefault();
-    let guess4Input = document.querySelector('#guessBox4').value.toLowerCase();
-    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess4Input}`;
+    let guess6Input = document.querySelector('#guessBox6').value.toLowerCase();
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess6Input}`;
     fetch(url)
     .then(res => res.json())
     .then(res => {
-        if (res.title || guess4Input.length !== 5){
+        if (res.title || guess6Input.length !== 5){
             // alert for invalid word
             errors[0].style.display = "none";               
             errors[1].style.display = "block";  
         } else {
             errors[0].style.display = "block";
             errors[1].style.display = "none";
-            let guess4 = new Guess(guess4Input);
-            guess4.gridPush(2);
+            let guess6 = new Guess(guess6Input);
+            guess6.gridPush(5);
             guessBox.value = "";
-            if (guess4.word == solution.word){
-                alert('Great! You win!')
+            if (guess6.word == solution.word){
+                alert('Good job! You win!')
             } else {
-                submitGuess[3].style.display = "none";
-                guessBox[3].style.display = "none";
-                submitGuess[4].style.display = "inline";
-                guessBox[4].style.display = "inline";
+                submitGuess[5].style.display = "none";
+                guessBox[5].style.display = "none";
+                submitGuess[6].style.display = "inline";
+                guessBox[6].style.display = "inline";
                 for (i = 0; i < 5; i++) {
                     solution.rightAnswer[i] = solution.letters[i];
                 }

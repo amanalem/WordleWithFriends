@@ -257,3 +257,65 @@ submitGuess[3].addEventListener('click', (e)=> {
     })
     .catch(err => console.log(`This is an error!`, err));
 });
+
+// Guess 5 Submit ----------------------------->>
+submitGuess[4].addEventListener('click', (e)=> {
+    e.preventDefault();
+    let guess5Input = document.querySelector('#guessBox5').value.toLowerCase();
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess5Input}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(res => {
+        if (res.title || guess5Input.length !== 5){
+            // alert for invalid word
+            errors[0].style.display = "none";               
+            errors[1].style.display = "block";  
+        } else {
+            errors[0].style.display = "block";
+            errors[1].style.display = "none";
+            let guess5 = new Guess(guess5Input);
+            guess5.gridPush(4);
+            guessBox.value = "";
+            if (guess5.word == solution.word){
+                alert('Good job! You win!')
+            } else {
+                submitGuess[4].style.display = "none";
+                guessBox[4].style.display = "none";
+                submitGuess[5].style.display = "inline";
+                guessBox[5].style.display = "inline";
+                for (i = 0; i < 5; i++) {
+                    solution.rightAnswer[i] = solution.letters[i];
+                }
+            }
+        };
+    })
+    .catch(err => console.log(`This is an error!`, err));
+});
+
+// Guess 6 Submit ----------------------------->>
+submitGuess[5].addEventListener('click', (e)=> {
+    e.preventDefault();
+    let guess6Input = document.querySelector('#guessBox6').value.toLowerCase();
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess6Input}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(res => {
+        if (res.title || guess6Input.length !== 5){
+            // alert for invalid word
+            errors[0].style.display = "none";               
+            errors[1].style.display = "block";  
+        } else {
+            errors[0].style.display = "block";
+            errors[1].style.display = "none";
+            let guess6 = new Guess(guess6Input);
+            guess6.gridPush(5);
+            guessBox.value = "";
+            if (guess6.word == solution.word){
+                alert('Phew! You win!')
+            } else {
+                alert(`Good try! The answer is ${solution.word.toUpperCase()}!`)
+            }
+        };
+    })
+    .catch(err => console.log(`This is an error!`, err));
+});
