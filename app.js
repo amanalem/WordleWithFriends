@@ -59,37 +59,6 @@ class Guess {
             }
         }
     }
-
-
-    // gridPush(num){
-    //     for (i = 0; i < 5; i++){
-    //         grid.row[num][i].innerText = this.letters[i].toUpperCase();
-    //         // let KeyColor = document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor;
-    //         if (!solution.rightAnswer.includes(this.letters[i])){
-    //             grid.row[num][i].style.backgroundColor = "#353336" /* Grey */;
-    //             if (/* KeyColor */document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "#2fbd71" /* Green */){
-    //                 console.log('The color is already correct');
-    //             } else if (/* KeyColor */document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "#cfb234" /* Yellow */){
-    //                 console.log('The color is already correct');
-    //             } else {
-    //                 /* KeyColor */document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "#353336" /* Grey */; 
-    //             }
-    //         } else {
-    //             if (this.letters[i] == solution.rightAnswer[i]){
-    //                 grid.row[num][i].style.backgroundColor = "#2fbd71" /* Green */;
-    //                 /* KeyColor */document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "#2fbd71" /* Green */;
-    //             } else {
-    //                 grid.row[num][i].style.backgroundColor = "#cfb234" /* Yellow */;
-    //                 if (/* KeyColor */document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor == "#2fbd71" /* Green */){
-    //                     console.log('The color is already correct');
-    //                 } else {
-    //                     /* KeyColor */document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor = "#cfb234" /* Yellow */;
-    //                 }
-    //             }
-    //             solution.rightAnswer[solution.rightAnswer.indexOf(this.letters[i])] = "*";
-    //         }
-    //     }
-    // }
 }
 
 // Player one chooses a 5 letter word--------------------------------------->>
