@@ -26,14 +26,28 @@ header {
     display: none;
 }
 
-.letterBox {
+.greenLetBox, .greyLetBox, .yellowLetBox, .letterBox {
     width: 3vw;
     height: 4vh;
-    /* border: 1px solid black; */
     margin: .2em;
     line-height: 4vh;
     border-radius: 10%;
-    background-color: rgb(150, 148, 148);
+}
+
+.letterBox {
+    background-color: #969494;
+}
+
+.greenLetBox {
+    background-color: #2fbd71;
+}
+
+.greyLetBox {
+    background-color: #353336;
+}
+
+.yellowLetBox {
+    background-color: #cfb234;
 }
 
 .letterGrid {

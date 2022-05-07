@@ -79,33 +79,67 @@
 
 
 
-// Guess 2 Submit ----------------------------->>
-submitGuess[1].addEventListener('click', (e)=> {
-    e.preventDefault();
-    let guess2Input = document.querySelector('#guessBox').value.toLowerCase();
-    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess2Input}`;
-    fetch(url)
-    .then(res => res.json())
-    .then(res => {
-        if (res.title || guess2Input.length !== 5){
-            // alert for invalid word
-            errors[0].style.display = "none";               
-            errors[1].style.display = "block";  
-        } else {
-            errors[0].style.display = "block";
-            errors[1].style.display = "none";
-            let guess2 = new Guess(guess2Input);
-            guess2.gridPush(1);
-            guessBox.value = "";
-            if (guess2.word == solution.word){
-                alert('Magnificent! YOU WIN!')
-            } else {
-                guessBox.placeholder = "Guess 2";
-                submitGuess[1].style.display = "none";
-                submitGuess[2].style.display = "inline";
-            }
-        };
+// // Guess 2 Submit ----------------------------->>
+// submitGuess[1].addEventListener('click', (e)=> {
+//     e.preventDefault();
+//     let guess2Input = document.querySelector('#guessBox').value.toLowerCase();
+//     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${guess2Input}`;
+//     fetch(url)
+//     .then(res => res.json())
+//     .then(res => {
+//         if (res.title || guess2Input.length !== 5){
+//             // alert for invalid word
+//             errors[0].style.display = "none";               
+//             errors[1].style.display = "block";  
+//         } else {
+//             errors[0].style.display = "block";
+//             errors[1].style.display = "none";
+//             let guess2 = new Guess(guess2Input);
+//             guess2.gridPush(1);
+//             guessBox.value = "";
+//             if (guess2.word == solution.word){
+//                 alert('Magnificent! YOU WIN!')
+//             } else {
+//                 guessBox.placeholder = "Guess 2";
+//                 submitGuess[1].style.display = "none";
+//                 submitGuess[2].style.display = "inline";
+//             }
+//         };
         
-    })
-    .catch(err => console.log(`This is an error!`, err));
-});
+//     })
+//     .catch(err => console.log(`This is an error!`, err));
+// });
+
+
+gridPush(num){
+    for (i = 0; i < 5; i++){
+        grid.row[num][i].innerText = this.letters[i].toUpperCase();
+        let keyColor = document.querySelector(`#${this.letters[i].toLowerCase()}`).style.backgroundColor;
+        if (!solution.rightAnswer.includes(this.letters[i])){
+            grid.row[num][i].style.backgroundColor = "#353336" /* Grey */;
+            if (keyColor !== "#2fbd71" /* Green */ && keyColor !== "#cfb234" /* Yellow */){
+                keyColor = "#353336" /* Grey */;
+            }
+        } else {
+            if (this.letters[i] == solution.rightAnswer[i]){
+                grid.row[num][i].style.backgroundColor = "#2fbd71" /* Green */;
+                keyColor = "#2fbd71" /* Green */;
+            } else {
+                grid.row[num][i].style.backgroundColor = "#cfb234" /* Yellow */;
+                if (keyColor !== "#2fbd71" /* Green */){
+                    keyColor = "#cfb234" /* Yellow */;
+                }
+            }
+            solution.rightAnswer[solution.rightAnswer.indexOf(this.letters[i])] = "*";
+        }
+    }
+}
+
+
+
+green - "#2fbd71"
+
+yellow - "#cfb234"
+
+grey - "#353336"
+
